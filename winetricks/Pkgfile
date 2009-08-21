@@ -4,7 +4,7 @@
 # Depends on: wine
 
 name=winetricks
-version=20090712
+version=20090821
 release=1
 source=(http://www.kegel.com/wine/winetricks)
 
