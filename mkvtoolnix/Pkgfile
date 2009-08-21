@@ -1,0 +1,20 @@
+# Description: Tools to create, alter and inspect Matroska files
+# URL: http://www.bunkus.org/videotools/mkvtoolnix
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Packager: Han Boetes, han at mijncomputer dot nl.
+# Depends on: libmatroska libvorbis boost
+
+name=mkvtoolnix
+version=2.9.5
+release=1
+source=(http://www.bunkus.org/videotools/mkvtoolnix/sources/$name-$version.tar.bz2)
+
+build()
+{
+	cd $name-$version
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+	make
+	make install-programs install-mans DESTDIR=$PKG
+}

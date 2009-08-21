@@ -1,0 +1,27 @@
+# Description: KDE integration for openoffice
+# URL: http://openoffice.org
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: openoffice
+
+name=openoffice-kde
+version=3.1.0
+release=1
+source=(http://mirror.pacific.net.au/OpenOfficestable/$version/OOo_${version}_LinuxX86-64_install_en-US_deb.tar.gz)
+
+build() {
+    mkdir $SRC/tmp
+    export TMPDIR=$SRC/tmp
+    cd OO*/DEBS
+    ar x *kde-integration*
+    cd desktop-integration
+    ar x *.deb
+    tar zxf data.tar.gz
+    mkdir $PKG/usr
+    cp -r usr/share $PKG/usr
+    cd $PKG/usr/share/applications/
+    rm *
+    for f in /usr/lib/openoffice/share/xdg/*; do
+	ln -s $f .
+    done
+    sed 's/command=.*/command=soffice/' -i $PKG/usr/share/application-registry/*
+}

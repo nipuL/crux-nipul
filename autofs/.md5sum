@@ -1,0 +1,10 @@
+53a9bd9d0b360dac2bff7d5a10ab587f  autofs-4.1.4-auto.smb-cifs.patch
+53dc1b382de017e91e7365b816c3962f  autofs-4.1.4-configureable-locking.patch
+86e4ceee960ec776df284285d127b41f  autofs-4.1.4-dont-create-remote-dirs.patch
+86f4ec97f0f2db5f8d754f8b63b2e9cc  autofs-4.1.4-ldap-depricated.patch
+65bf9eee333661cb012bb5cdd77c8c14  autofs-4.1.4-locking-fix-1.patch
+6342d6908c35af72b29231ecc6a10b5a  autofs-4.1.4-misc-fixes.patch
+2783f4498c7e90a2cbf93b44d4fc4b94  autofs-4.1.4-multi-parse-fix.patch
+7665506b0cc0fce3cee81c469c406e77  autofs-4.1.4-no-unlink-upstream.patch
+b7d81c9aa92884d55ce5a1075d49fe78  autofs-4.1.4-non-replicated-ping.patch
+7e3949114c00665b4636f0c318179657  autofs-4.1.4.tar.bz2

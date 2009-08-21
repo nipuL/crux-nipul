@@ -1,0 +1,20 @@
+# Description: Python event-driven networking framework.
+# URL: http://www.twistedmatrix.com/
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: zopeinterface, pycrypto
+# Nice to have: pyserial, pyopenssl
+
+name=twisted
+version=8.2.0
+release=1
+source=(http://tmrc.mit.edu/mirror/twisted/Twisted/${version::3}/Twisted-$version.tar.bz2)
+
+build() {
+	cd Twisted-$version
+	python setup.py install --root=$PKG
+	find $PKG -name '*.egg-info'  \
+	    -o -name topfiles \
+	    | xargs rm -rf
+}
+

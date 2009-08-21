@@ -1,0 +1,30 @@
+# Description:
+# URL:
+# Maintainer:
+# Packager:
+# Depends on:
+
+name=autofs
+version=4.1.4
+release=1
+source=(http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-auto.smb-cifs.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-configureable-locking.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-dont-create-remote-dirs.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-ldap-depricated.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-locking-fix-1.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-misc-fixes.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-multi-parse-fix.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-no-unlink-upstream.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version-non-replicated-ping.patch
+    http://www.kernel.org/pub/linux/daemons/$name/v4/$name-$version.tar.bz2
+)
+
+build() {
+	cd $name-$version
+	for f in $SRC/*patch; do
+	    patch -p1 -i $f
+	done
+	./configure
+	make
+	make INSTALLROOT=$PKG install
+}

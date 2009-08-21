@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/django/
+drwxr-xr-x	root/root	usr/share/django/apps/
+drwxr-xr-x	root/root	usr/share/django/apps/dbtemplates/
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/__init__.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/__init__.pyc
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/admin.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/admin.pyc
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/cache.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/cache.pyc
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/loader.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/loader.pyc
+drwxr-xr-x	root/root	usr/share/django/apps/dbtemplates/management/
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/__init__.pyc
+drwxr-xr-x	root/root	usr/share/django/apps/dbtemplates/management/commands/
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/commands/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/commands/__init__.pyc
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/commands/create_error_templates.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/commands/create_error_templates.pyc
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/commands/sync_templates.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/management/commands/sync_templates.pyc
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/models.py
+-rw-r--r--	root/root	usr/share/django/apps/dbtemplates/models.pyc

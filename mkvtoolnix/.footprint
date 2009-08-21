@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mkvextract
+-rwxr-xr-x	root/root	usr/bin/mkvinfo
+-rwxr-xr-x	root/root	usr/bin/mkvmerge
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mkvextract.1.gz
+-rw-r--r--	root/root	usr/man/man1/mkvinfo.1.gz
+-rw-r--r--	root/root	usr/man/man1/mkvmerge.1.gz

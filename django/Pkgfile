@@ -1,0 +1,18 @@
+# Description: Web framework written in python
+# URL: http://djangoproject.com
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: python
+
+name=django
+version=1.0.2
+release=3
+source=(http://media.djangoproject.com/releases/$version/Django-$version-final.tar.gz
+    $name.pth)
+
+build() {
+	cd Django-$version-final
+	python setup.py install --root=$PKG
+	# Don't lay eggs
+	find $PKG -name '*egg-info' | xargs rm
+	install $SRC/$name.pth $PKG/usr/lib/python2.6/site-packages/$name.pth
+}
