@@ -11,6 +11,7 @@ d:p5-xml-parser
 d:autofs
 d:pyopenssl
 d:pygobject
+d:winetricks
 d:p5-berkeleydb
 d:django
 d:dbus-python
@@ -81,6 +82,7 @@ f:89094404dade73dc4b71d41613ac4407:django-basic-apps/Pkgfile
 f:03bf7ffc309aba6157cd03cb3d4d9ccb:p5-html-parser/.md5sum
 f:efc3556c718699c6fd643958be96202f:p5-html-parser/.footprint
 f:5d42e43753502a86363300e6c8aa72c4:p5-html-parser/Pkgfile
+f:c16f92ea3169fe85d7aaba8ce1a4d72a:index.html
 f:d03c9022f289338a3fe574afa28544b7:pygtk/.md5sum
 f:ef98d1be34d4627e78e99f44ad9d31a1:pygtk/.footprint
 f:a2b1e0c4cab6763cfc45f008b4303a1f:pygtk/Pkgfile
@@ -107,6 +109,9 @@ f:ae987eaceea6a750fc477be466886347:pyopenssl/Pkgfile
 f:9079a59e73cfb24b577c10d19a5b9016:pygobject/.md5sum
 f:701b700fa5fde4d693a7069a9eee6a18:pygobject/.footprint
 f:b72f165f2f3bbbe2fc1497da4a691bf1:pygobject/Pkgfile
+f:b895f4543101d8a3c35c702cac831dd7:winetricks/.md5sum
+f:f2527a4ccd1b12286b7160ee9fbe8964:winetricks/.footprint
+f:8fb438834fd5e289284f2dfbcf23fb87:winetricks/Pkgfile
 f:dd390db0f8bc5a4c5e740b86e6a40471:p5-berkeleydb/.md5sum
 f:aa5e1902b027a798bb0b4daa97bd46bf:p5-berkeleydb/.footprint
 f:9923657c0713fcdf8957c22fe283480c:p5-berkeleydb/Pkgfile

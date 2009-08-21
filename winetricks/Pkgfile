@@ -1,0 +1,13 @@
+# Description: Runtime libraries installation script for wine
+# URL: http://wiki.winehq.org/winetricks
+# Maintainer: Lucas Hazel, lucas@die.net.au
+# Depends on: wine
+
+name=winetricks
+version=20090712
+release=1
+source=(http://www.kegel.com/wine/winetricks)
+
+build() {
+    install -D -m 0755 $name $PKG/usr/bin/$name
+}
