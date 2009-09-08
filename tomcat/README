@@ -1,0 +1,21 @@
+NOTES
+-----
+
+The web administration interface is removed from this installation. 
+It is available from apache.org as a separate package.
+
+POST-INSTALL
+------------
+
+If you want to have Tomcat running on port 80 please modify the server.xml
+file accordingly.
+
+It is a Good Thing (tm) to drop down Tomcat runtime privileges.
+To do so, add user named `tomcat` to your system, like this:
+
+# groupadd tomcat
+# useradd -g tomcat tomcat
+# passwd -l tomcat
+
+Then you can change the TOMCAT_USER and TOMCAT_GROUP variables in 
+/etc/rc.d/tomcat from `root` to `tomcat`

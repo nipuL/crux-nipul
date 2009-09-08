@@ -1,0 +1,65 @@
+# Description:	Java Servlet container (binary version)
+# URL:		http://jakarta.apache.org/tomcat/index.html
+# Maintainer:	Oleksiy V. Khilkevich <centericq at ukr.net>
+# Packager:	Oleksiy V. Khilkevich <centericq at ukr.net>
+# Depends on:	jdk, apr
+
+name=tomcat
+version=6.0.20
+release=1
+source=(http://www.apache.org/dist/$name/$name-6/v$version/bin/apache-$name-$version.tar.gz \
+	tomcat \
+	tomcat-users.xml)
+
+build() {
+    # Compile the jsvc tool
+    mv apache-$name-$version/bin/jsvc.tar.gz $SRC/
+    tar zxf jsvc.tar.gz
+    (
+	cd jsvc-src
+	autoconf
+	sh ./configure --with-java=/usr/lib/java
+	make 
+	install -D -m 755 jsvc $PKG/usr/sbin/jsvc 
+    )
+
+    mv apache-$name-$version/bin/$name-native.tar.gz $SRC/
+    tar zxf $name-native.tar.gz
+    cd $name-native-*-src/jni/native/
+    ./configure --prefix=/usr \
+	--with-apr=/usr/bin/apr-1-config \
+	--with-java-home=/usr/lib/java
+
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/include $PKG/usr/bin
+
+    # Copy Tomcat files
+    mkdir -p $PKG/usr/{opt,lib}/$name \
+	$PKG/usr/share/$name/{bin,webapps} \
+	$PKG/etc/$name \
+	$PKG/var/log/$name \
+	$PKG/var/run/$name/{temp,work}
+
+    (
+	cd $SRC/apache-$name-$version
+	cp bin/*.sh bin/*.jar bin/*.xml $PKG/usr/share/$name/bin
+	cp lib/* $PKG/usr/lib/$name
+	cp conf/* $PKG/etc/$name
+	cp -r webapps/{host-manager,manager,ROOT} $PKG/usr/share/$name/webapps
+
+        # Construct CTALINA_HOME
+	cd $PKG/usr/share/$name
+	ln -fs ../../../etc/$name conf
+	ln -fs ../../../var/run/$name/work work
+	ln -fs ../../../var/run/$name/temp temp
+	ln -fs ../../../var/log/$name logs
+	ln -fs ../../../usr/lib/$name lib
+    
+    )
+    # Remove useless stuff 
+    rm $PKG/usr/lib/$name/$name-i18n*
+    
+    install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+    install -D -m 600 $SRC/tomcat-users.xml $PKG/etc/$name/tomcat-users.xml
+}

@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# Adapt the following lines to your configuration
+JAVA_HOME=/usr/lib/java
+CATALINA_HOME=/usr/share/tomcat
+TOMCAT_USER=root
+TMP_DIR=/tmp
+CATALINA_OPTS=
+CLASSPATH="$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/bin/commons-daemon.jar:$CATALINA_HOME/bin/bootstrap.jar"
+
+case "$1" in
+    start)
+	echo "Tomcat is starting..."
+	
+	/usr/sbin/jsvc \
+	    -user $TOMCAT_USER \
+	    -home $JAVA_HOME \
+	    -Dcatalina.home=$CATALINA_HOME \
+	    -Djava.io.tmpdir=$TMP_DIR \
+	    -outfile $CATALINA_HOME/logs/catalina.out \
+	    -errfile '&1' \
+	    $CATALINA_OPTS \
+	    -cp $CLASSPATH \
+	    org.apache.catalina.startup.Bootstrap
+	#
+	# To get a verbose JVM
+	#   -verbose \
+	# To get a debug of jsvc.
+	#   -debug \
+    ;;
+    
+    stop)
+	echo "Tomcat is shutting down..."
+	PID=`cat /var/run/jsvc.pid`
+	kill $PID
+    ;;
+    
+    restart)
+	$0 stop
+	sleep 2
+	$0 start
+    ;;
+    
+    *)
+	echo "Usage tomcat [start|stop|restart]"
+	exit 1
+    ;;
+esac
+
+exit 0
+
+# End of file
