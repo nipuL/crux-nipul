@@ -1,0 +1,23 @@
+# Description: FastCGI SDK for C
+# URL: http://www.fastcgi.com/
+# Packager: Andreas Baumann, abaumann at yahoo dot com
+# Depends on:
+
+name=fcgi
+version=2.4.0
+release=2
+source=(http://www.fastcgi.com/dist/$name-$version.tar.gz
+    $name-$version-eof.patch)
+
+build () {
+	cd $name-$version
+	patch -p1 -i $SRC/$name-$version-eof.patch
+	./configure --prefix=/usr
+	make
+	# Relink problem for libfcgi++ due to libtool! Must
+	# install normal, build the package and then uninstall
+	# again..
+	cd libfcgi && make install && cd ..
+	make install DESTDIR=$PKG
+	cd libfcgi && make uninstall && cd ..	
+}
