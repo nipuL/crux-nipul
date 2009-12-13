@@ -1,0 +1,18 @@
+# Description: Version control for Django models
+# URL: http://code.google.com/p/django-reversion
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: django
+
+name=django-reversion
+version=r157
+release=1
+source=(http://crux64.die.net.au/files/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version/src
+	python setup.py install --root=$PKG \
+	    --install-purelib=/usr/share/django/apps \
+            --install-scripts=/usr/bin \
+	    --install-data=/usr/share/django/apps
+	find $PKG -name '*egg-info' | xargs rm -rf
+}
