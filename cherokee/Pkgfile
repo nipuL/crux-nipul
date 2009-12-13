@@ -1,0 +1,27 @@
+# Description: Web Server
+# URL: http://www.cherokee-project.com
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: python
+
+name=cherokee
+version=0.99.27
+release=1
+source=(http://www.cherokee-project.com/download/${version::4}/$version/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+	--localstatedir=/var \
+	--sysconfdir=/etc \
+	--disable-pam \
+	--disable-nls \
+	--with-mysql=no \
+	--with-ffmpeg=no \
+	--with-ldap=no \
+	--with-wwwroot=/home/www \
+	--with-wwwuser=www \
+	--with-wwwgroup=www
+
+    make
+    make DESTDIR=$PKG install
+}
