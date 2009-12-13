@@ -1,0 +1,17 @@
+# Description: a thinking tool. a planning tool. Change the map when your thoughts change
+# URL: http://www.insilmaril.de/vym/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qt4
+
+name=vym
+version=1.12.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/vym/vym-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    qmake PREFIX=/usr
+    make
+    make INSTALL_ROOT=$PKG install
+}
