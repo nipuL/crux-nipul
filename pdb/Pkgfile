@@ -1,0 +1,14 @@
+# Description: Command line interface for CRUX portdb
+# URL: http://git.die.net.au/cgit/crux/tools/pdb
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: crux-python
+
+name=pdb
+version=0.0a
+release=1
+source=($name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+}

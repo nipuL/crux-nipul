@@ -1,0 +1,22 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pdb
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/python2.5/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/crux/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/crux/pdb/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/port.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/port.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/portdb.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/portdb.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/query.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/query.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/xmlobj.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/crux/pdb/xmlobj.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/pdb-0.0a-py2.5.egg-info
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/pdb.1.gz
