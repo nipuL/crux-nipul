@@ -1,0 +1,24 @@
+# Description: NumPy is the fundamental package needed for scientific computing with Python.
+# URL:         http://numpy.scipy.org/
+# Maintainer:  Alex Kostrewa, alexko256 at googlemail dot com
+# Depends on:  python
+
+name=numpy
+version=1.3.0
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/numpy/numpy-1.3.0.tar.gz)
+
+build() {
+	        cd $name-$version
+		
+		python setup.py build
+		python setup.py install --prefix=/usr --root=$PKG
+
+		rm $PKG/usr/lib/python2.6/site-packages/numpy/COMPATIBILITY
+		rm $PKG/usr/lib/python2.6/site-packages/numpy/DEV_README.txt
+		rm $PKG/usr/lib/python2.6/site-packages/numpy/INSTALL.txt
+		rm $PKG/usr/lib/python2.6/site-packages/numpy/LICENSE.txt
+		rm $PKG/usr/lib/python2.6/site-packages/numpy/README.txt
+		rm $PKG/usr/lib/python2.6/site-packages/numpy/THANKS.txt
+}
+
