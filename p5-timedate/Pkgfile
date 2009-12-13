@@ -1,0 +1,19 @@
+# Maintainer: Richard Pöttler, richard dot poettler at gmail dot com
+# Description: Date formating subroutines
+# URL: http://search.cpan.org/~gbarr/TimeDate/lib/Date/Format.pm
+# Depends on: 
+
+name=p5-timedate
+version=1.16
+release=2
+source=(http://www.cpan.org/modules/by-module/Date/TimeDate-$version.tar.gz)
+
+build () {
+	cd TimeDate-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+	find ${PKG} -name perllocal.pod -delete
+	find ${PKG} -name .packlist -delete
+	find $PKG -type d -empty -delete
+}
