@@ -1,0 +1,43 @@
+# Description: VirtualBox is a general-purpose full virtualizer for x86 hardware.
+# URL: http://www.virtualbox.org/
+# Maintainer: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Packager: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Depends on: bin86,dev86,hal,libsdl,libidl,qt4,xalan-c,iasl,xorg-libxmu,libcap
+
+name=virtualbox
+version=3.0.10
+release=1
+source=(http://download.virtualbox.org/$name/${version%-*}/VirtualBox-${version}-OSE.tar.bz2 \
+        $name 60-vboxdrv.rules $name.desktop)
+
+build() {
+  # environment value
+  [ ! -z $KERN_DIR ] && KARG="KERN_DIR=$KERN_DIR"
+
+  cd VirtualBox-${version%-*}_OSE
+  # compile
+  ./configure --with-qt4-dir=/usr/share/qt4 \
+              --disable-hardening \
+              --ose \
+              --disable-pulse
+  source ./env.sh
+  kmk all
+  # compile kernel modules
+  cd out/linux.amd64/release/bin/src
+  make $KARG
+  # install kernel modules
+  install -d $PKG/lib/modules/$(uname -r)/kernel/drivers/misc
+  install -m 0644 *.ko $PKG/lib/modules/$(uname -r)/kernel/drivers/misc
+  # remove superfluous files
+  rm -rf $SRC/VirtualBox-${version%-*}_OSE/out/linux.amd64/release/bin/{sdk/samples,testcase,nls*}
+  find $SRC/VirtualBox-${version%-*}_OSE/out/linux.amd64/release/bin -type f -name 'tst*' -exec rm -rf {} \;
+  # do the rest
+  install -D -m 0644 $SRC/60-vboxdrv.rules $PKG/etc/udev/rules.d/60-vboxdrv.rules
+  install -d $PKG/usr/{bin,share/$name,share/pixmaps}
+  install -m 0755 $SRC/$name $PKG/usr/bin/$name
+  mv $SRC/VirtualBox-${version%-*}_OSE/out/linux.amd64/release/{bin,lib} $PKG/usr/share/$name
+  chmod +s $PKG/usr/share/$name/bin/VirtualBox
+  install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
+  mv $PKG/usr/share/$name/bin/VBox.png $PKG/usr/share/pixmaps/$name.png
+  rm $PKG/usr/share/$name/bin/{VBox.sh,SUP*nstall}
+}

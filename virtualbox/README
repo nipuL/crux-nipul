@@ -1,0 +1,49 @@
+
+README for virtualbox
+
+
+REQUIREMENTS
+
+  Kernel headers needed to build virtualbox's modules.
+
+
+PRE-INSTALL
+
+
+POST-INSTALL
+
+  Run the post-install script in order to add a vboxusers group to your system.
+  After that, add your user to the vboxusers group:
+  # usermod -a -G vboxusers <your_user> 
+  
+  During installation 'vboxdrv.ko' has been installed to your modules directory
+  and you can load it using modprobe vboxdrv (needed before run VirtualBox).
+  Also make sure you give yourself read and write access to /dev/vboxdrv.
+  For this, virtualbox port has their own udev rules.
+
+  Also is a good idea to fine tune your udev rules as you want.
+  For getting some info from your system run udevinfo:
+  # udevinfo -a -p /sys/class/misc/vboxdrv
+
+  Udevinfo starts with the device specified by the devpath and then
+  walks up the chain of parent devices. It prints for every device
+  found, all possible attributes in the udev rules key format.
+  A rule to match, can be composed by the attributes of the device
+  and the attributes from one single parent device.
+
+    looking at device '/class/misc/vboxdrv':
+    KERNEL=="vboxdrv"
+    SUBSYSTEM=="misc"
+    SYSFS{dev}=="10:62"
+
+
+PRECAUTION
+
+ Virtualbox by default uses /usr/src/linux as the source directory of your Linux kernel.
+ To use an alternative kernel directory you should type something like:
+ # env KERN_DIR=/not-default-path/src/linux pkgmk
+
+ If you have problems trying to update virtualbox (xalan-c not found...) use
+ this command to solve it:
+ # prt-get update -fr xerces-c xalan-c
+ and then rebuild virtualbox
