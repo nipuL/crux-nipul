@@ -1,0 +1,17 @@
+# Description:
+# URL:
+# Maintainer:
+# Packager:
+# Depends on:
+
+name=unifdef
+version=1.0
+release=1
+source=(http://www.cs.cmu.edu/~ajw/public/dist/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    make clean; make
+    mkdir -p $PKG/usr/{bin,man/man1}
+    make DEST=$PKG/usr install
+}
