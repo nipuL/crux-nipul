@@ -1,0 +1,19 @@
+# Description: General purpose messaging and notification program
+# URL: http://gotmor.googlepages.com/dzen
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: xorg-xlib
+
+name=dzen2
+version=svn
+release=1
+source=()
+
+build() {
+    svn co http://dzen.googlecode.com/svn/trunk/ dzen
+    cd dzen
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
+    cd gadgets
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
+}
