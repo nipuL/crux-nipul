@@ -1,0 +1,18 @@
+# Description: matplotlib is a python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms.
+# URL:         http://matplotlib.sourceforge.net/
+# Maintainer:  Alex Kostrewa, alexko256 at googlemail dot com
+# Depends on:  numpy
+
+name=matplotlib
+version=0.98.5.2
+release=1
+source=(http://dfn.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	        cd $name-$version
+
+		python setup.py build
+		python setup.py install --prefix=/usr \
+					--root=$PKG
+}
+
