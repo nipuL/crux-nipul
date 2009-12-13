@@ -1,0 +1,21 @@
+# Description: television application for video capture cards
+# URL: http://tvtime.sourceforge.net/
+# Maintainer: Hannes Mayer, kontakt at ecarux dot de
+# Depends on:
+
+name=tvtime
+version=1.0.1
+release=1
+source=(http://surfnet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz
+    gcc-4.1.patch glibc-locale.patch)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr --sysconfdir=/etc
+	patch -p0 < $SRC/gcc-4.1.patch
+	patch -p1 < $SRC/glibc-locale.patch
+	cp /usr/include/linux/videodev.h src/videodev.h
+	cp /usr/include/linux/videodev2.h src/videodev2.h
+	make
+	make DESTDIR=$PKG install
+} 
