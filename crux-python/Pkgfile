@@ -1,0 +1,14 @@
+# Description: Python module for CRUX
+# URL: http://git.die.net.au/cgit/crux/tools/crux-python
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: python
+
+name=crux-python
+version=0.0c
+release=1
+source=(http://crux64.die.net.au/files/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+}

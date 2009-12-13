@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/python2.6/
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/crux-0.0c-py2.6.egg-info
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/crux/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/crux/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/crux/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/crux/port.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/crux/port.pyc
