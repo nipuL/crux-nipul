@@ -1,0 +1,22 @@
+# Description: cross development C compiler environment for the production of 8086 executables.
+# URL: http://homepage.ntlworld.com/robert.debath/dev86/
+# Maintainer: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Packager: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Depends on: 
+
+name=dev86
+version=0.16.17
+release=5
+source=(http://homepage.ntlworld.com/robert.debath/$name/Dev86src-$version.tar.gz \
+        dev86-pic.patch nostrict.patch)
+
+build() {
+  cd $name-$version
+  patch -p0 < $SRC/dev86-pic.patch
+  patch -p1 < $SRC/nostrict.patch
+  sed 's|sys/vm86.h|asm/vm86.h|' -i elksemu/{elks{_sys,_signal,},minix}.c
+  echo quit | make -j1 PREFIX=/usr
+  make -j1 install-all DIST=$PKG
+  rm -f $PKG/usr/bin/{as,ld,nm,objdump,size}86
+  rm -f $PKG/usr/man/man1/{as,ld}86.1
+}
