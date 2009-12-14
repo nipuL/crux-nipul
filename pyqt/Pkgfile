@@ -1,0 +1,17 @@
+# Description: PyQt is a set of Python bindings for the Qt toolkit.
+# URL:         http://www.riverbankcomputing.co.uk/software/pyqt/intro
+# Maintainer:  Rouven Schuerch, rs at tegonal dot com
+# Depends:     sip qt4
+
+name=pyqt
+version=4.6.2
+release=1
+source=(http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-$version.tar.gz)
+build() {
+    cd PyQt-x11-gpl-$version
+    python configure.py --confirm-license
+#    find -name 'Makefile' | \
+#	xargs sed -i 's|-Wl,-rpath,/usr/lib||g;s|-Wl,-rpath,.* ||g'
+    make
+    make DESTDIR=$PKG install
+}
