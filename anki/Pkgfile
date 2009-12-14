@@ -1,0 +1,22 @@
+# Description: A spaced repitition system
+# URL: http://ichi2.net/anki
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: desktop-file-utils sip pysqlite sqlalchemy simplejson
+# Nice to have: matplotlib
+
+name=anki
+version=0.9.9.8.5
+release=1
+source=(http://ichi2.net/anki/download/files/$name-$version.tgz)
+
+build() {
+	export PYTHONPATH="$SRC/$name-$version/libanki"
+	cd $name-$version
+	(
+	    cd libanki
+	    python setup.py install --root $PKG
+	)
+	python setup.py install --root $PKG
+	desktop-file-install --dir $PKG/usr/share/applications $name.desktop
+	install -D -m644 icons/$name.png $PKG/usr/share/pixmaps/$name.png
+}
