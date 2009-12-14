@@ -1,7 +1,7 @@
 # $Id: $
 # Description: Database independent interface for Perl
 # URL: http://search.cpan.org/~timb/DBI-1.46/
-# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
 # Packager: Younes Hafri <ycrux@club-internet.fr>
 # Depends on: p5-plrpc, p5-net-daemon, p5-storable
 

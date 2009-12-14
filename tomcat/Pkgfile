@@ -1,6 +1,6 @@
 # Description:	Java Servlet container (binary version)
 # URL:		http://jakarta.apache.org/tomcat/index.html
-# Maintainer:	Oleksiy V. Khilkevich <centericq at ukr.net>
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
 # Packager:	Oleksiy V. Khilkevich <centericq at ukr.net>
 # Depends on:	jdk, apr
 

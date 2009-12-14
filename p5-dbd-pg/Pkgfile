@@ -1,7 +1,7 @@
 # $Id: $
 # Description: PostgreSQL database driver for the DBI module
 # URL: http://search.cpan.org/~dbdpg/DBD-Pg-1.40/
-# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
 # Packager: Younes Hafri <ycrux@club-internet.fr>
 # Depends on: postgresql, p5-dbi
 

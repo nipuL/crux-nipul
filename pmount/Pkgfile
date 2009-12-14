@@ -1,6 +1,6 @@
 # Description: pmount allows users to mount volumes without an /etc/fstab entry
 # URL:         http://www.piware.de/projects.shtml
-# Maintainer:  Fredrik Rinnestam, fredrik at obra dot se
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
 # Packager:    Jared Housh, loophole at morpheus dot net
 # Depends on:  hal
 

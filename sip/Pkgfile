@@ -1,6 +1,6 @@
 # Description: A tool for creating Python bindings for C and C++ libraries
 # URL:         http://www.riverbankcomputing.co.uk/software/sip/intro
-# Maintainer:  Rouven Schuerch, rs at tegonal dot com
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
 # Packager:    Younes Hafri, ycrux at club-internet dot fr
 # Depends:     python
 
