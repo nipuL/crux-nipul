@@ -1,0 +1,16 @@
+# Description: Pager utility for ROX
+# URL: http://roscidus.com/desktop/node/75
+# Maintainer: Lucas Hazel, lucas@die.net.au
+# Depends on: libwnck gtk rox-clib
+
+name=rox-pager
+version=1.2
+release=1
+source=(http://dl.sf.net/rox/Pager-$version.tar.gz)
+
+build() {
+	Pager/AppRun --compile
+	rm -rf Pager/src
+	mkdir -p $PKG/usr/ROX/Apps
+	cp -r Pager $PKG/usr/ROX/Apps
+}
