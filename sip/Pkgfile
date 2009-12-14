@@ -1,0 +1,18 @@
+# Description: A tool for creating Python bindings for C and C++ libraries
+# URL:         http://www.riverbankcomputing.co.uk/software/sip/intro
+# Maintainer:  Rouven Schuerch, rs at tegonal dot com
+# Packager:    Younes Hafri, ycrux at club-internet dot fr
+# Depends:     python
+
+name=sip
+version=4.9.3
+release=1
+
+source=(http://www.riverbankcomputing.co.uk/static/Downloads/${name}4/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python configure.py
+	make
+	make DESTDIR=$PKG install
+}
