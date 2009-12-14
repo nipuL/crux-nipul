@@ -1,0 +1,16 @@
+# Description: Alarm clock and reminder list
+# URL: http://roscidus.com/desktop/node/159
+# Maintainer: Lucas Hazel, lucas@die.net.au
+# Depends on: rox-lib
+
+name=rox-memo
+version=2.1
+release=1
+source=(http://dl.sf.net/rox/memo-$version.tar.bz2)
+
+build() {
+	cd memo-$version
+	python /usr/lib/python/compileall.py Memo
+	mkdir -p $PKG/usr/ROX/Apps
+	cp -r Memo $PKG/usr/ROX/Apps
+}
