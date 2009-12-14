@@ -1,0 +1,15 @@
+# Description: Python bindings for alsalib
+# URL: http://pyalsaaudio.sourceforge.net/
+# Maintainer: Lucas Hazel, lucas@die.net.au
+# Depends on: python, alsa-lib
+
+name=pyalsaaudio
+version=0.4
+release=1
+source=(http://dl.sf.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+	find $PKG -name '*egg-info' | xargs rm -rf
+}
