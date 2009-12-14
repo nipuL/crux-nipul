@@ -1,4 +1,5 @@
-# Maintainer: Richard Pöttler, richard dot poettler at gmail dot com
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Packager:  Richard Pöttler, richard dot poettler at gmail dot com
 # Description: Date formating subroutines
 # URL: http://search.cpan.org/~gbarr/TimeDate/lib/Date/Format.pm
 # Depends on: 
