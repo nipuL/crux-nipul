@@ -1,6 +1,7 @@
 # Description: PyQt is a set of Python bindings for the Qt toolkit.
 # URL:         http://www.riverbankcomputing.co.uk/software/pyqt/intro
-# Maintainer:  Rouven Schuerch, rs at tegonal dot com
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Packager:   Rouven Schuerch, rs at tegonal dot com
 # Depends:     sip qt4
 
 name=pyqt
