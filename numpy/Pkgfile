@@ -1,6 +1,7 @@
 # Description: NumPy is the fundamental package needed for scientific computing with Python.
 # URL:         http://numpy.scipy.org/
-# Maintainer:  Alex Kostrewa, alexko256 at googlemail dot com
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Packager:   Alex Kostrewa, alexko256 at googlemail dot com
 # Depends on:  python
 
 name=numpy
