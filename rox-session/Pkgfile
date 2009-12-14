@@ -1,0 +1,15 @@
+# Description: Session manager for the ROX Desktop
+# URL: http://roscidus.com/desktop/ROX-Session
+# Maintainer: Lucas Hazel, lucas@die.net.au
+# Depends on: rox-lib dbus-python
+
+name=rox-session
+version=0.40.0
+release=1
+source=(http://dl.sf.net/rox/$name-$version.tar.gz)
+
+build() {
+	ROX-Session/AppRun --compile
+	mkdir -p $PKG/usr/ROX/Apps
+	cp -r ROX-Session $PKG/usr/ROX/Apps
+}
