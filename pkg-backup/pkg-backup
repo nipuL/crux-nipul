@@ -1,0 +1,37 @@
+#!/bin/sh
+
+check_installed() {
+    return `prt-get isinst $1 >& /dev/null`
+}
+
+backup_port() {
+    version="`prt-get current $1`"
+    tar zcf "$PKG_BACKUP_DIR/$1#$version.pkg.tar.gz" \
+	-C $ROOT `pkginfo -l $1 | sed '/.*\/$/d'`
+}
+    
+main() {
+    while [ "$1" ]; do
+	case $1 in
+	    -r|--root)
+		if [ ! "$2" ]; then
+		    echo "pkg-backup: option $1 requires an argument"
+		    exit 1
+		fi
+		ROOT="$2"
+		shift ;;
+	    *)
+		PORTS="$1 $PORTS" ;;
+	esac
+	shift
+    done
+
+    for port in $PORTS
+    do
+	check_installed "$port" && backup_port "$port"
+    done
+}
+
+ROOT="/"
+PKG_BACKUP_DIR="/var/cache/pkg-backup"
+main $@

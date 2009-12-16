@@ -1,0 +1,23 @@
+#!/bin/sh
+ARGS=$@
+while [ "$1" ]; do
+    case $1 in
+	-r|--root)
+	    if [ ! "$2" ]; then
+		echo "pkgrm-wrapper: option $1 requires an argument"
+		exit 1
+	    fi
+	    ROOT="$2"
+	    shift ;;
+	*)
+	    PACKAGE="$1" ;;
+    esac
+    shift
+done
+
+if [ "$ROOT" ]; then
+    pkg-backup -r "$ROOT" "$PACKAGE"
+else
+    pkg-backup "$PACKAGE"
+fi
+pkgrm $ARGS
