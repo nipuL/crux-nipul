@@ -1,0 +1,42 @@
+# Description: an extensible, customizable, self-documenting real-time display editor
+# URL: http://www.gnu.org/software/emacs/
+# Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Packager:  Antti Nykanen, aon at iki dot fi
+# Arch Maintainer: Lucas Hazel, lucas at die dot net dot au
+# Depends on: ctags
+
+name=emacs-nox11
+version=23.1
+release=1
+source=(http://ftp.gnu.org/gnu/emacs/emacs-$version.tar.gz
+	emacs-$version-etc-blacklist)
+
+build() {
+	cd emacs-$version
+
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--mandir=/usr/man \
+		--localstatedir=/usr/lib/emacs/$version \
+		--without-x \
+		--without-makeinfo
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/info
+	find $PKG/usr/share/emacs -name "*.el.gz" | while read file; do
+		[ -f ${file%.gz}c ] && rm -f $file
+	done
+
+	rm $PKG/usr/bin/emacs-$version 
+	rm $PKG/usr/{bin/{c,e}tags,man/man1/{c,e}tags.1}
+	rm $PKG/usr/share/emacs/$version/lisp/{COPYING,calc/README.prev,nxml/TODO,{,term/,international/}README}
+
+	for i in $(< $SRC/emacs-$version-etc-blacklist); do
+		rm -r $PKG/usr/share/emacs/$version/etc/$i
+	done
+
+	chown -R root:root $PKG
+}
