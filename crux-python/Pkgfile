@@ -6,7 +6,7 @@
 name=crux-python
 version=0.0c
 release=1
-source=(http://crux64.die.net.au/files/$name-$version.tar.gz)
+source=(http://git.die.net.au/cgit/crux/tools/$name/snapshot/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
