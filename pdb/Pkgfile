@@ -4,9 +4,9 @@
 # Depends on: crux-python
 
 name=pdb
-version=0.0a
+version=0.1
 release=1
-source=($name-$version.tar.gz)
+source=(http://git.die.net.au/cgit/crux/tools/$name/snapshot/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
